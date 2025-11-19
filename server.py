@@ -13,7 +13,7 @@ connected_users = {}
 
 @app.route('/')
 def home():
-    return "🚀 My Call Server is Running!"
+    return "🚀 My Call Server is Running on Railway!"
 
 @app.route('/status')
 def status():
@@ -60,4 +60,6 @@ def handle_call_request(data):
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    socketio.run(app, host='0.0.0.0', port=port, debug=True)
+    host = '0.0.0.0'
+    print(f"🚀 Starting server on {host}:{port}")
+    socketio.run(app, host=host, port=port, debug=False)
